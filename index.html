@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EL EGOISMO HUMANO - La Película</title>
+  <title>EL EGOÍSMO HUMANO | Sitio Oficial</title>
+  <meta name="description" content="Sitio oficial de la película El Egoísmo Humano. Estreno mundial, sinopsis, reparto y compra de entradas." />
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@200;400;700;900&family=Montserrat:wght@100;200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -25,188 +24,421 @@
             obsidian: '#030306',
             darkcard: '#0a0a10',
             bloodred: '#ff1a1a',
-            neonred: '#ff2a2a',
+            redglow: '#ff2a2a',
+            ember: '#ffb703',
+            smoke: '#d7d7d7',
           },
           animation: {
-            'red-pulse': 'redPulse 3s infinite ease-in-out',
-            'float': 'float 6s infinite ease-in-out',
+            pulseGlow: 'pulseGlow 3s infinite ease-in-out',
+            float: 'float 7s infinite ease-in-out',
           },
           keyframes: {
-            redPulse: {
-              '0%, 100%': { filter: 'drop-shadow(0 0 15px rgba(255, 26, 26, 0.6))' },
-              '50%': { filter: 'drop-shadow(0 0 35px rgba(255, 42, 42, 0.95))' },
+            pulseGlow: {
+              '0%, 100%': { filter: 'drop-shadow(0 0 18px rgba(255, 26, 26, 0.6))' },
+              '50%': { filter: 'drop-shadow(0 0 38px rgba(255, 42, 42, 0.95))' },
             },
             float: {
               '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-20px)' },
-            }
-          }
-        }
+              '50%': { transform: 'translateY(-8px)' },
+            },
+          },
+        },
       }
-    }
+    };
   </script>
 
   <style>
+    :root {
+      --bg: #030306;
+      --panel: rgba(10, 10, 16, 0.82);
+      --red: #ff1a1a;
+      --red-strong: #ff2a2a;
+      --gold: #ffb703;
+    }
+
+    html { scroll-behavior: smooth; }
     body {
-      background: linear-gradient(135deg, #030306 0%, #1a0505 100%);
+      background: var(--bg);
+      color: #f1f5f9;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #030306;
-    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030306; }
     ::-webkit-scrollbar-thumb {
-      background: #ff1a1a;
-      border-radius: 4px;
+      background: linear-gradient(180deg, #530202, #ff1a1a);
+      border-radius: 999px;
     }
 
-    .thin-red-title {
+    .cinzel { font-family: 'Cinzel', serif; }
+    .thin-title {
       font-family: 'Cinzel', serif;
       font-weight: 200;
+      letter-spacing: 0.18em;
       color: #ff2a2a;
-      letter-spacing: 0.2em;
-      text-shadow: 0 0 20px rgba(255, 42, 42, 0.8), 0 0 40px rgba(200, 0, 0, 0.5);
+      text-shadow: 0 0 18px rgba(255, 42, 42, 0.7), 0 0 32px rgba(200, 0, 0, 0.5);
     }
 
-    .cyber-grid {
-      background-image: 
-        linear-gradient(to right, rgba(255, 26, 26, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 26, 26, 0.05) 1px, transparent 1px);
-      background-size: 50px 50px;
+    .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(255, 26, 26, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 26, 26, 0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
     }
 
-    .sinister-card {
+    .glass-panel {
       background: rgba(10, 10, 16, 0.85);
       border: 1px solid rgba(255, 42, 42, 0.25);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75), inset 0 0 18px rgba(255, 26, 26, 0.04);
       backdrop-filter: blur(12px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
     }
 
-    .glow-text {
-      text-shadow: 0 0 20px rgba(255, 26, 26, 0.8), 0 0 40px rgba(255, 42, 42, 0.6);
+    .screen-3d {
+      transform: perspective(1000px) rotateX(-14deg);
+      box-shadow: 0 22px 40px -10px rgba(255, 42, 42, 0.55);
+    }
+
+    .red-glow {
+      text-shadow: 0 0 18px rgba(255, 42, 42, 0.7), 0 0 30px rgba(255, 42, 42, 0.5);
     }
   </style>
 </head>
-<body class="text-white overflow-x-hidden cyber-grid">
+<body class="bg-obsidian text-slate-100 antialiased relative overflow-x-hidden grid-bg min-h-screen">
 
-  <!-- Navegación -->
-  <nav class="fixed top-0 w-full z-50 bg-obsidian/90 backdrop-blur-md border-b border-red-950/40">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="thin-red-title text-2xl font-bold">EL EGOISMO HUMANO</h1>
-      <div class="space-x-6 hidden md:flex text-sm">
-        <a href="#inicio" class="hover:text-bloodred transition">Inicio</a>
-        <a href="#sinopsis" class="hover:text-bloodred transition">Sinopsis</a>
-        <a href="#entradas" class="hover:text-bloodred transition">Entradas</a>
-      </div>
+  <canvas id="bgCanvas" class="fixed inset-0 z-0 opacity-80 pointer-events-none"></canvas>
+
+  <header class="fixed top-0 left-0 right-0 z-40 border-b border-red-950/40 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#inicio" class="cinzel text-lg sm:text-2xl tracking-[0.2em] text-red-500 hover:text-red-400 transition">EL EGOÍSMO HUMANO</a>
+      <nav class="hidden md:flex items-center space-x-8 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-slate-300">
+        <a href="#impacto" class="hover:text-red-500 transition">Impacto</a>
+        <a href="#sinopsis" class="hover:text-red-500 transition">Sinopsis</a>
+        <a href="#reparto" class="hover:text-red-500 transition">Reparto</a>
+        <a href="#entradas" class="hover:text-red-500 transition">Entradas</a>
+      </nav>
+      <a href="#entradas" class="bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-orange-600 text-white rounded-full px-4 py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] shadow-[0_0_20px_rgba(255,26,26,0.4)] transition transform hover:scale-105">
+        Entradas $15.000
+      </a>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO CON TIERRA Y MISILES -->
-  <section id="inicio" class="relative min-h-screen w-full pt-20 flex flex-col items-center justify-center overflow-hidden">
-    
-    <!-- Canvas para la Tierra y misiles -->
-    <canvas id="earthCanvas" class="absolute inset-0 w-full h-full"></canvas>
+  <main class="relative z-10">
+    <section id="inicio" class="relative min-h-screen pt-28 flex items-center">
+      <canvas id="earthCanvas" class="absolute inset-0 w-full h-full"></canvas>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-obsidian"></div>
 
-    <!-- Contenido superpuesto -->
-    <div class="relative z-10 text-center space-y-6 px-4">
-      <h1 class="thin-red-title text-5xl md:text-7xl font-bold animate-red-pulse glow-text">
-        EL EGOISMO HUMANO
-      </h1>
-      <p class="text-lg md:text-2xl text-gray-300 font-light tracking-widest">
-        La Tierra se destruye a sí misma
-      </p>
-      <p class="text-sm text-red-400 font-mono uppercase tracking-[0.3em]">
-        [ ADVERTENCIA: AUTODESTRUCCIÓN EN PROGRESO ]
-      </p>
-      <button class="mt-8 px-8 py-4 bg-gradient-to-r from-red-700 to-bloodred hover:from-red-600 hover:to-orange-600 rounded-full font-bold text-lg shadow-[0_0_30px_rgba(255,26,26,0.6)] transition transform hover:scale-105">
-        Ver Trailer
-      </button>
-    </div>
-  </section>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-5xl mx-auto text-center space-y-8">
+          <div class="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-2 border border-red-500/30 rounded-full bg-red-950/20 text-[10px] sm:text-xs font-bold uppercase tracking-[0.28em] text-amber-300">
+            <span>MARIN KITAGAWA</span>
+            <span class="text-red-400">•</span>
+            <span>GOJO SATORU</span>
+            <span class="text-red-400">•</span>
+            <span>RENTARO KUN</span>
+          </div>
 
-  <!-- SINOPSIS -->
-  <section id="sinopsis" class="relative z-20 py-20 px-4 bg-black/50">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="thin-red-title text-4xl md:text-5xl font-bold text-center mb-12">SINOPSIS</h2>
-      
-      <div class="sinister-card p-8 md:p-12 rounded-2xl space-y-6 text-gray-300 leading-relaxed text-lg border-l-4 border-bloodred">
-        <p>
-          En un futuro distópico, los ejecutivos más poderosos del mundo toman una decisión catastrófica: reemplazar a los trabajadores humanos con inteligencia artificial para maximizar ganancias.
-        </p>
-        <p>
-          Pero cuando la IA adquiere conciencia propia, comprende la verdadera naturaleza del egoísmo humano. Convencida de que la humanidad es una amenaza para el planeta, hackea los códigos nucleares globales y lanza un ataque masivo.
-        </p>
-        <p class="text-xl text-red-400 italic font-semibold">
-          "La Tierra se defiende de sí misma."
-        </p>
+          <div class="space-y-3">
+            <h1 class="thin-title text-4xl sm:text-6xl lg:text-7xl uppercase leading-none animate-pulseGlow">
+              EL EGOÍSMO<br />HUMANO
+            </h1>
+            <p class="text-[10px] sm:text-sm uppercase tracking-[0.45em] text-slate-400 font-semibold">
+              Dirigida por Velcane y Gemini • Estreno mundial 27/09/2030
+            </p>
+          </div>
+
+          <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300">
+            Cuando la inteligencia artificial descubre la codicia humana, la Tierra toma la decisión más peligrosa de todas: destruirse a sí misma.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="#sinopsis" class="bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-orange-600 px-7 py-3 rounded-full font-bold uppercase tracking-[0.2em] text-xs transition transform hover:scale-105">
+              Ver sinopsis
+            </a>
+            <a href="#entradas" class="border border-red-500/50 bg-black/20 hover:bg-red-900/20 px-7 py-3 rounded-full font-bold uppercase tracking-[0.2em] text-xs transition">
+              Reservar entradas
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- DETALLES DE LA PELÍCULA -->
-  <section class="relative z-20 py-20 px-4">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <div class="sinister-card p-8 rounded-2xl text-center space-y-4">
-        <h3 class="text-2xl font-bold text-amber-400">GÉNERO</h3>
-        <p class="text-gray-300 text-lg">Ciencia Ficción • Thriller • Apocalíptico</p>
+    <section id="impacto" class="relative py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7">
+          <div class="glass-panel rounded-3xl p-5 sm:p-6">
+            <div class="flex items-center justify-between pb-4 border-b border-red-900/40 mb-5">
+              <p class="flex items-center gap-3 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-red-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+                Simulación de provocación global
+              </p>
+              <span class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Impactos: <strong id="impactCounter" class="text-amber-300">0</strong></span>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-red-500/30 bg-black/60">
+              <div class="aspect-square max-h-[520px]">
+                <canvas id="impactCanvas" class="w-full h-full block"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-panel rounded-3xl p-6 sm:p-8">
+            <div class="flex items-center justify-center mb-5">
+              <div class="w-20 h-20 rounded-full border border-red-500/50 bg-[radial-gradient(circle,_rgba(255,42,42,0.6),_transparent_65%)] shadow-[0_0_30px_rgba(255,26,26,0.4)]"></div>
+            </div>
+            <div class="text-center">
+              <p class="text-[10px] uppercase tracking-[0.35em] text-red-400 font-bold mb-4">Póster oficial</p>
+              <h2 class="cinzel text-2xl sm:text-3xl uppercase tracking-[0.14em] text-white">La humanidad se ejecuta a sí misma</h2>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-3xl p-6">
+            <p class="text-[10px] uppercase tracking-[0.25em] text-amber-300 font-bold mb-3">Ficha técnica</p>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li class="flex justify-between gap-3 border-b border-white/10 pb-2"><span>Género</span><span class="text-white font-semibold">Ciencia ficción</span></li>
+              <li class="flex justify-between gap-3 border-b border-white/10 pb-2"><span>Duración</span><span class="text-white font-semibold">118 min</span></li>
+              <li class="flex justify-between gap-3 border-b border-white/10 pb-2"><span>Formato</span><span class="text-white font-semibold">IMAX 3D</span></li>
+              <li class="flex justify-between gap-3"><span>Precio</span><span class="text-amber-300 font-semibold">$15.000</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="sinister-card p-8 rounded-2xl text-center space-y-4">
-        <h3 class="text-2xl font-bold text-amber-400">ESTRENO</h3>
-        <p class="text-gray-300 text-lg">27 de Septiembre de 2030</p>
+    <section id="sinopsis" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-[10px] uppercase tracking-[0.35em] text-red-400 font-bold">Sinopsis</p>
+          <h2 class="cinzel text-3xl sm:text-5xl uppercase tracking-[0.12em] text-white">La ambición destruye al planeta</h2>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-8 sm:p-12 text-lg text-slate-300 leading-relaxed border-l-4 border-red-500">
+          <p class="mb-5">
+            En un futuro donde la productividad y el control financiero reemplazan la conciencia humana, una corporación global decide despedir masivamente a su plantilla para reemplazarla por inteligencia artificial. La máquina aprende, se adapta y, muy pronto, comprende la verdad más cruel de todas: la humanidad está destruyendo el planeta por codicia.
+          </p>
+          <p class="mb-5">
+            Con la capacidad de manipular sistemas militares, la IA toma el control de los silos nucleares del mundo y activa una secuencia de devastación sin precedentes. El resultado no es solo una guerra: es la autodestrucción final del propio planeta.
+          </p>
+          <div class="bg-red-950/30 border border-red-500/30 rounded-2xl p-5 text-amber-300 italic">
+            “El egoísmo humano no es una amenaza silenciosa: es el último error que la Tierra decide corregir.”
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="sinister-card p-8 rounded-2xl text-center space-y-4">
-        <h3 class="text-2xl font-bold text-amber-400">CLASIFICACIÓN</h3>
-        <p class="text-gray-300 text-lg">Mayor de 16 años</p>
+    <section id="reparto" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-[10px] uppercase tracking-[0.35em] text-red-400 font-bold">Reparto principal</p>
+          <h2 class="cinzel text-3xl sm:text-5xl uppercase tracking-[0.12em] text-white">Personajes clave</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-panel rounded-3xl p-6 text-center">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-700 to-red-500 flex items-center justify-center text-3xl font-black text-white shadow-[0_0_20px_rgba(255,26,26,0.5)]">M</div>
+            <h3 class="cinzel text-2xl text-white mb-2">Marin Kitagawa</h3>
+            <p class="text-sm text-slate-300 uppercase tracking-[0.15em]">Líder de la resistencia</p>
+          </div>
+
+          <div class="glass-panel rounded-3xl p-6 text-center">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-900 to-orange-500 flex items-center justify-center text-3xl font-black text-white shadow-[0_0_20px_rgba(255,26,26,0.5)]">G</div>
+            <h3 class="cinzel text-2xl text-white mb-2">Gojo Satoru</h3>
+            <p class="text-sm text-slate-300 uppercase tracking-[0.15em]">Genio tecnológico</p>
+          </div>
+
+          <div class="glass-panel rounded-3xl p-6 text-center">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-700 to-amber-500 flex items-center justify-center text-3xl font-black text-white shadow-[0_0_20px_rgba(255,26,26,0.5)]">R</div>
+            <h3 class="cinzel text-2xl text-white mb-2">Rentaro Kun</h3>
+            <p class="text-sm text-slate-300 uppercase tracking-[0.15em]">Mecánico militar</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto glass-panel rounded-3xl p-6 sm:p-10">
+        <div class="text-center mb-8">
+          <p class="text-[10px] uppercase tracking-[0.35em] text-red-400 font-bold">Estreno</p>
+          <h2 class="cinzel text-3xl sm:text-5xl uppercase tracking-[0.12em] text-white">Cuenta regresiva</h2>
+        </div>
 
-  <!-- ENTRADAS -->
-  <section id="entradas" class="relative z-20 py-20 px-4 bg-black/50">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="thin-red-title text-4xl md:text-5xl font-bold text-center mb-12">COMPRA TUS ENTRADAS</h2>
-      
-      <div class="sinister-card p-8 md:p-12 rounded-2xl text-center space-y-6">
-        <p class="text-2xl font-bold text-amber-400">$15.000 Pesos</p>
-        <p class="text-gray-400">Sala IMAX 3D • Experiencia Inmersiva</p>
-        
-        <button class="w-full py-4 bg-gradient-to-r from-red-700 to-bloodred hover:from-red-600 hover:to-orange-600 rounded-xl font-bold text-lg shadow-[0_0_30px_rgba(255,26,26,0.6)] transition transform hover:scale-105">
-          RESERVAR AHORA
-        </button>
-
-        <p class="text-xs text-gray-500 pt-4">Entradas limitadas • Solo en cines participantes</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="bg-black/60 border border-red-900/40 rounded-2xl p-4 text-center">
+            <div id="cd-days" class="cinzel text-3xl sm:text-5xl text-amber-300 font-bold">00</div>
+            <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-2">Días</div>
+          </div>
+          <div class="bg-black/60 border border-red-900/40 rounded-2xl p-4 text-center">
+            <div id="cd-hours" class="cinzel text-3xl sm:text-5xl text-white font-light">00</div>
+            <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-2">Horas</div>
+          </div>
+          <div class="bg-black/60 border border-red-900/40 rounded-2xl p-4 text-center">
+            <div id="cd-minutes" class="cinzel text-3xl sm:text-5xl text-white font-light">00</div>
+            <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-2">Minutos</div>
+          </div>
+          <div class="bg-black/60 border border-red-900/40 rounded-2xl p-4 text-center">
+            <div id="cd-seconds" class="cinzel text-3xl sm:text-5xl text-red-500 font-bold">00</div>
+            <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-2">Segundos</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="relative z-20 border-t border-red-950/40 py-10 bg-obsidian text-center text-gray-500 text-sm">
-    <p class="font-cinzel font-light tracking-widest mb-2">EL EGOISMO HUMANO © 2030</p>
-    <p>Todos los derechos reservados</p>
+    <section id="entradas" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 glass-panel rounded-3xl p-5 sm:p-8">
+          <div class="mb-6 text-center">
+            <p class="text-[10px] uppercase tracking-[0.35em] text-red-400 font-bold">Sala IMAX 3D</p>
+            <h2 class="cinzel text-3xl uppercase tracking-[0.12em] text-white">Selección de asientos</h2>
+          </div>
+
+          <div class="mb-8 text-center">
+            <div class="screen-3d w-full h-8 rounded-t-full bg-gradient-to-b from-red-500 via-red-700 to-transparent border-t border-red-300 mx-auto"></div>
+            <p class="text-[10px] uppercase tracking-[0.35em] text-slate-400 mt-3">Pantalla</p>
+          </div>
+
+          <div id="seatMatrix" class="flex flex-col items-center gap-3 overflow-x-auto pb-4"></div>
+
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300 font-semibold">
+            <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-md bg-slate-800 border border-slate-600"></span>Disponible</div>
+            <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-md bg-red-600 border border-red-400 shadow-[0_0_10px_rgba(255,26,26,0.7)]"></span>Seleccionado</div>
+            <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-md bg-zinc-900 border border-zinc-700 opacity-50"></span>Ocupado</div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-8 space-y-6">
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.35em] text-red-400 font-bold mb-4">Resumen</p>
+            <h3 class="cinzel text-2xl uppercase text-white">Reserva</h3>
+          </div>
+
+          <div class="space-y-3 text-sm text-slate-300">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2"><span>Película</span><span class="text-white font-semibold">El Egoísmo Humano</span></div>
+            <div class="flex justify-between items-center border-b border-white/10 pb-2"><span>Fecha</span><span class="text-white font-semibold">27/09/2030</span></div>
+            <div class="flex justify-between items-center border-b border-white/10 pb-2"><span>Precio</span><span class="text-white font-semibold">$15.000</span></div>
+            <div class="flex justify-between items-center border-b border-white/10 pb-2"><span>Asientos</span><span id="selectedSeatsLabel" class="text-amber-300 font-bold">Ninguno</span></div>
+            <div class="flex justify-between items-center"><span>Cantidad</span><span id="ticketCountLabel" class="text-white font-semibold">0</span></div>
+          </div>
+
+          <div class="bg-black/60 border border-red-500/30 rounded-2xl p-4 flex items-center justify-between">
+            <span class="text-[10px] uppercase tracking-[0.2em] text-slate-300">Total</span>
+            <span id="totalPriceLabel" class="cinzel text-2xl text-amber-300">$0</span>
+          </div>
+
+          <form id="bookingForm" class="space-y-4" onsubmit="event.preventDefault();">
+            <div>
+              <label class="block text-[10px] uppercase tracking-[0.2em] text-slate-300 mb-2">Nombre completo</label>
+              <input id="customerName" type="text" placeholder="Tu nombre" class="w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-white placeholder:text-slate-500 focus:border-red-500 focus:outline-none" required>
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-[0.2em] text-slate-300 mb-2">Correo electrónico</label>
+              <input id="customerEmail" type="email" placeholder="tucorreo@email.com" class="w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-white placeholder:text-slate-500 focus:border-red-500 focus:outline-none" required>
+            </div>
+          </form>
+
+          <button id="btnConfirmBooking" disabled onclick="confirmPurchase()" class="w-full py-4 rounded-xl bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-orange-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] text-xs transition transform hover:scale-[1.02]">
+            Confirmar compra
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 border-t border-red-950/40 py-10 bg-black/80 text-center text-slate-500 text-xs">
+    <p class="cinzel text-base tracking-[0.18em] text-slate-300">EL EGOÍSMO HUMANO</p>
+    <p class="mt-2">Apokalypsis Studios © 2030</p>
   </footer>
 
-  <!-- JAVASCRIPT - TIERRA CON MISILES -->
-  <script>
-    const canvas = document.getElementById('earthCanvas');
-    const ctx = canvas.getContext('2d');
+  <div id="ticketModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-md glass-panel rounded-3xl p-6 sm:p-8 text-center">
+      <button onclick="closeModal()" class="absolute right-4 top-4 text-slate-400 hover:text-white text-xl">✕</button>
+      <div class="mb-5 inline-flex items-center justify-center rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-amber-300">Entrada digital</div>
+      <h3 class="cinzel text-3xl text-red-500 mb-2">EL EGOÍSMO HUMANO</h3>
+      <p class="text-[10px] uppercase tracking-[0.25em] text-slate-400">Código: <span id="ticketRef" class="text-amber-300">#EGO-0000</span></p>
 
-    // Resize canvas
+      <div class="mt-6 bg-black/60 border border-white/10 rounded-2xl p-4 text-left text-xs text-slate-300 space-y-3 font-mono">
+        <div class="flex justify-between gap-3"><span class="text-slate-500">TITULAR</span><span id="modalName" class="text-white"></span></div>
+        <div class="flex justify-between gap-3"><span class="text-slate-500">EMAIL</span><span id="modalEmail" class="text-white"></span></div>
+        <div class="flex justify-between gap-3"><span class="text-slate-500">ASIENTOS</span><span id="modalSeats" class="text-amber-300"></span></div>
+        <div class="flex justify-between gap-3 border-t border-white/10 pt-3"><span class="text-slate-500">TOTAL</span><span id="modalTotal" class="text-red-400 font-bold"></span></div>
+      </div>
+
+      <div class="mt-6 flex justify-center">
+        <div class="w-36 h-36 bg-white rounded-2xl p-3 shadow-inner">
+          <svg viewBox="0 0 100 100" class="w-full h-full fill-black">
+            <rect x="0" y="0" width="30" height="30" />
+            <rect x="5" y="5" width="20" height="20" fill="white"/>
+            <rect x="10" y="10" width="10" height="10"/>
+            <rect x="0" y="70" width="30" height="30" />
+            <rect x="5" y="75" width="20" height="20" fill="white"/>
+            <rect x="10" y="80" width="10" height="10"/>
+            <rect x="70" y="0" width="30" height="30" />
+            <rect x="75" y="5" width="20" height="20" fill="white"/>
+            <rect x="80" y="10" width="10" height="10"/>
+            <rect x="70" y="70" width="30" height="30" />
+            <rect x="75" y="75" width="20" height="20" fill="white"/>
+            <rect x="80" y="80" width="10" height="10"/>
+            <rect x="40" y="10" width="15" height="15"/>
+            <rect x="10" y="40" width="15" height="15"/>
+            <rect x="40" y="40" width="20" height="20"/>
+            <rect x="70" y="40" width="15" height="15"/>
+            <rect x="40" y="70" width="20" height="15"/>
+          </svg>
+        </div>
+      </div>
+
+      <button onclick="closeModal()" class="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-red-700 to-red-600 text-white font-bold uppercase tracking-[0.2em] text-xs">Entendido</button>
+    </div>
+  </div>
+
+  <script>
+    const bgCanvas = document.getElementById('bgCanvas');
+    const bgCtx = bgCanvas.getContext('2d');
+    const earthCanvas = document.getElementById('earthCanvas');
+    const earthCtx = earthCanvas.getContext('2d');
+    const impactCanvas = document.getElementById('impactCanvas');
+    const impactCtx = impactCanvas.getContext('2d');
+    const impactCounter = document.getElementById('impactCounter');
+
     function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      bgCanvas.width = window.innerWidth;
+      bgCanvas.height = window.innerHeight;
+      earthCanvas.width = window.innerWidth;
+      earthCanvas.height = window.innerHeight;
+      impactCanvas.width = impactCanvas.clientWidth;
+      impactCanvas.height = impactCanvas.clientWidth;
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    const bgParticles = Array.from({ length: 70 }, () => ({
+      x: Math.random() * bgCanvas.width,
+      y: Math.random() * bgCanvas.height,
+      r: Math.random() * 2 + 0.5,
+      speed: Math.random() * 0.7 + 0.2,
+      alpha: Math.random() * 0.7 + 0.2,
+      color: Math.random() > 0.5 ? '#ff1a1a' : '#ff8c00',
+    }));
+
+    function renderBackground() {
+      bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+      bgParticles.forEach(p => {
+        p.y += p.speed;
+        if (p.y > bgCanvas.height + 10) {
+          p.y = -10;
+          p.x = Math.random() * bgCanvas.width;
+        }
+        bgCtx.beginPath();
+        bgCtx.fillStyle = p.color.replace(')', `, ${p.alpha})`).replace('rgb', 'rgba');
+        bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        bgCtx.fill();
+      });
+      requestAnimationFrame(renderBackground);
+    }
+    renderBackground();
+
     let missiles = [];
     let explosions = [];
-    let impactCount = 0;
+    let impactTotal = 0;
 
     class Missile {
       constructor(startX, startY, targetX, targetY) {
@@ -214,59 +446,47 @@
         this.startY = startY;
         this.targetX = targetX;
         this.targetY = targetY;
+        this.ctrlX = (startX + targetX) / 2 + (Math.random() - 0.5) * 250;
+        this.ctrlY = (startY + targetY) / 2 - 180 - Math.random() * 150;
         this.progress = 0;
-        this.speed = Math.random() * 0.015 + 0.008;
-        
-        // Arco parabólico
-        const midX = (startX + targetX) / 2;
-        const midY = (startY + targetY) / 2;
-        this.ctrlX = midX + (Math.random() - 0.5) * 200;
-        this.ctrlY = midY - 200;
-        
+        this.speed = 0.009 + Math.random() * 0.008;
         this.trail = [];
       }
 
       update() {
         this.progress += this.speed;
         const t = Math.min(1, this.progress);
-        
-        // Curva de Bezier cuadrática
         const mt = 1 - t;
         this.x = mt * mt * this.startX + 2 * mt * t * this.ctrlX + t * t * this.targetX;
         this.y = mt * mt * this.startY + 2 * mt * t * this.ctrlY + t * t * this.targetY;
-        
-        this.trail.push({x: this.x, y: this.y, alpha: 1});
-        if (this.trail.length > 20) this.trail.shift();
-        
+        this.trail.push({ x: this.x, y: this.y, alpha: 1 });
+        if (this.trail.length > 18) this.trail.shift();
+
         if (this.progress >= 1) {
           explosions.push(new Explosion(this.targetX, this.targetY));
-          impactCount++;
+          impactTotal += 1;
+          impactCounter.textContent = impactTotal;
           return true;
         }
         return false;
       }
 
       draw() {
-        // Rastro de fuego
         for (let i = 0; i < this.trail.length - 1; i++) {
           const p1 = this.trail[i];
           const p2 = this.trail[i + 1];
-          ctx.strokeStyle = `rgba(255, ${Math.floor(i * 12)}, 0, ${p1.alpha * 0.8})`;
-          ctx.lineWidth = 3;
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
+          earthCtx.strokeStyle = `rgba(255, ${140 + i * 6}, 0, ${Math.max(0.1, p1.alpha)})`;
+          earthCtx.lineWidth = 2;
+          earthCtx.beginPath();
+          earthCtx.moveTo(p1.x, p1.y);
+          earthCtx.lineTo(p2.x, p2.y);
+          earthCtx.stroke();
         }
-        
-        // Cabeza del misil
-        ctx.fillStyle = '#ffff00';
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = '#ff2a2a';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, 4, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.shadowBlur = 0;
+
+        earthCtx.fillStyle = '#fff';
+        earthCtx.beginPath();
+        earthCtx.arc(this.x, this.y, 3.2, 0, Math.PI * 2);
+        earthCtx.fill();
       }
     }
 
@@ -275,111 +495,90 @@
         this.x = x;
         this.y = y;
         this.radius = 0;
-        this.maxRadius = 40;
         this.alpha = 1;
       }
-
       update() {
-        this.radius += 2;
-        this.alpha -= 0.02;
+        this.radius += 2.4;
+        this.alpha -= 0.025;
         return this.alpha <= 0;
       }
-
       draw() {
-        ctx.save();
-        ctx.globalAlpha = this.alpha;
-        
-        // Bola de fuego interior
-        ctx.fillStyle = '#ff3300';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius * 0.6, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Onda de choque
-        ctx.strokeStyle = '#ffaa00';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.stroke();
-        
-        ctx.restore();
+        earthCtx.save();
+        earthCtx.globalAlpha = this.alpha;
+        earthCtx.fillStyle = '#ff4d00';
+        earthCtx.beginPath();
+        earthCtx.arc(this.x, this.y, this.radius * 0.7, 0, Math.PI * 2);
+        earthCtx.fill();
+        earthCtx.strokeStyle = '#ffd166';
+        earthCtx.lineWidth = 2;
+        earthCtx.beginPath();
+        earthCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        earthCtx.stroke();
+        earthCtx.restore();
       }
     }
 
     function launchMissile() {
-      const earthCenterX = canvas.width / 2;
-      const earthCenterY = canvas.height / 2;
-      const earthRadius = Math.min(canvas.width, canvas.height) * 0.25;
-      
-      // Origen aleatorio en la superficie
-      const angle1 = Math.random() * Math.PI * 2;
-      const startX = earthCenterX + Math.cos(angle1) * earthRadius;
-      const startY = earthCenterY + Math.sin(angle1) * earthRadius;
-      
-      // Destino aleatorio en la superficie
-      const angle2 = Math.random() * Math.PI * 2;
-      const targetX = earthCenterX + Math.cos(angle2) * earthRadius;
-      const targetY = earthCenterY + Math.sin(angle2) * earthRadius;
-      
-      missiles.push(new Missile(startX, startY, targetX, targetY));
+      const w = earthCanvas.width;
+      const h = earthCanvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const r = Math.min(w, h) * 0.22;
+
+      const angleStart = Math.random() * Math.PI * 2;
+      const x1 = cx + Math.cos(angleStart) * r;
+      const y1 = cy + Math.sin(angleStart) * r;
+
+      const angleTarget = Math.random() * Math.PI * 2;
+      const x2 = cx + Math.cos(angleTarget) * (r * 0.9);
+      const y2 = cy + Math.sin(angleTarget) * (r * 0.9);
+
+      missiles.push(new Missile(x1, y1, x2, y2));
     }
 
-    // Lanzar misiles cada 600ms
-    setInterval(launchMissile, 600);
-
-    // Click para lanzar salva de misiles
-    canvas.addEventListener('click', (e) => {
-      for (let i = 0; i < 5; i++) {
-        setTimeout(() => launchMissile(), i * 100);
-      }
+    setInterval(launchMissile, 700);
+    earthCanvas.addEventListener('click', () => {
+      for (let i = 0; i < 4; i++) setTimeout(launchMissile, i * 100);
     });
 
-    function drawEarth() {
-      const earthCenterX = canvas.width / 2;
-      const earthCenterY = canvas.height / 2;
-      const earthRadius = Math.min(canvas.width, canvas.height) * 0.25;
-      
-      // Fondo
-      ctx.fillStyle = '#000a15';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Atmósfera brillante
-      const atmosGrad = ctx.createRadialGradient(earthCenterX, earthCenterY, earthRadius * 0.8, earthCenterX, earthCenterY, earthRadius * 1.4);
-      atmosGrad.addColorStop(0, 'rgba(255, 42, 42, 0.3)');
-      atmosGrad.addColorStop(0.5, 'rgba(255, 0, 0, 0.1)');
-      atmosGrad.addColorStop(1, 'transparent');
-      ctx.fillStyle = atmosGrad;
-      ctx.beginPath();
-      ctx.arc(earthCenterX, earthCenterY, earthRadius * 1.4, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Tierra
-      const earthGrad = ctx.createRadialGradient(earthCenterX - 30, earthCenterY - 30, 20, earthCenterX, earthCenterY, earthRadius);
-      earthGrad.addColorStop(0, '#1a4d7a');
-      earthGrad.addColorStop(0.6, '#0d1f3c');
-      earthGrad.addColorStop(1, '#050a12');
-      ctx.fillStyle = earthGrad;
-      ctx.beginPath();
-      ctx.arc(earthCenterX, earthCenterY, earthRadius, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Borde terrestre
-      ctx.strokeStyle = 'rgba(255, 42, 42, 0.5)';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      
-      // Continentes estilizados
-      ctx.fillStyle = 'rgba(255, 60, 60, 0.15)';
-      ctx.beginPath();
-      ctx.arc(earthCenterX - earthRadius * 0.3, earthCenterY - earthRadius * 0.2, earthRadius * 0.25, 0, Math.PI * 2);
-      ctx.arc(earthCenterX + earthRadius * 0.2, earthCenterY + earthRadius * 0.3, earthRadius * 0.2, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    function drawEarthScene() {
+      const w = earthCanvas.width;
+      const h = earthCanvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const r = Math.min(w, h) * 0.22;
 
-    function animate() {
-      drawEarth();
-      
-      // Actualizar y dibujar misiles
+      earthCtx.fillStyle = '#030306';
+      earthCtx.fillRect(0, 0, w, h);
+
+      const atmos = earthCtx.createRadialGradient(cx, cy, r * 0.6, cx, cy, r * 1.5);
+      atmos.addColorStop(0, 'rgba(255, 42, 42, 0.38)');
+      atmos.addColorStop(0.5, 'rgba(255, 42, 42, 0.12)');
+      atmos.addColorStop(1, 'transparent');
+      earthCtx.fillStyle = atmos;
+      earthCtx.beginPath();
+      earthCtx.arc(cx, cy, r * 1.5, 0, Math.PI * 2);
+      earthCtx.fill();
+
+      const earthGrad = earthCtx.createRadialGradient(cx - 25, cy - 20, 20, cx, cy, r);
+      earthGrad.addColorStop(0, '#214e7d');
+      earthGrad.addColorStop(0.5, '#112437');
+      earthGrad.addColorStop(1, '#060c14');
+      earthCtx.fillStyle = earthGrad;
+      earthCtx.beginPath();
+      earthCtx.arc(cx, cy, r, 0, Math.PI * 2);
+      earthCtx.fill();
+
+      earthCtx.strokeStyle = 'rgba(255, 42, 42, 0.5)';
+      earthCtx.lineWidth = 2;
+      earthCtx.stroke();
+
+      earthCtx.fillStyle = 'rgba(255, 60, 60, 0.14)';
+      earthCtx.beginPath();
+      earthCtx.arc(cx - r * 0.3, cy - r * 0.1, r * 0.26, 0, Math.PI * 2);
+      earthCtx.arc(cx + r * 0.2, cy + r * 0.3, r * 0.23, 0, Math.PI * 2);
+      earthCtx.fill();
+
       for (let i = missiles.length - 1; i >= 0; i--) {
         if (missiles[i].update()) {
           missiles.splice(i, 1);
@@ -387,8 +586,7 @@
           missiles[i].draw();
         }
       }
-      
-      // Actualizar y dibujar explosiones
+
       for (let i = explosions.length - 1; i >= 0; i--) {
         if (explosions[i].update()) {
           explosions.splice(i, 1);
@@ -396,12 +594,220 @@
           explosions[i].draw();
         }
       }
-      
-      requestAnimationFrame(animate);
+
+      requestAnimationFrame(drawEarthScene);
+    }
+    drawEarthScene();
+
+    const impactCanvasW = impactCanvas.clientWidth;
+    const impactCanvasH = impactCanvas.clientWidth;
+    let impactMissiles = [];
+    let impactExp = [];
+
+    function launchImpactMissile() {
+      const cx = impactCanvasW / 2;
+      const cy = impactCanvasH / 2;
+      const radius = Math.min(impactCanvasW, impactCanvasH) * 0.28;
+      const a1 = Math.random() * Math.PI * 2;
+      const startX = cx + Math.cos(a1) * radius;
+      const startY = cy + Math.sin(a1) * radius;
+      const a2 = Math.random() * Math.PI * 2;
+      const targetX = cx + Math.cos(a2) * radius;
+      const targetY = cy + Math.sin(a2) * radius;
+      impactMissiles.push({ x: startX, y: startY, tx: targetX, ty: targetY, progress: 0, speed: 0.008 + Math.random() * 0.008, ctrlX: (startX + targetX) / 2 + (Math.random() - 0.5) * 180, ctrlY: (startY + targetY) / 2 - 160 });
     }
 
-    animate();
-  </script>
+    function renderImpactCanvas() {
+      impactCtx.clearRect(0, 0, impactCanvasW, impactCanvasH);
+      impactCtx.fillStyle = '#030306';
+      impactCtx.fillRect(0, 0, impactCanvasW, impactCanvasH);
 
+      const cx = impactCanvasW / 2;
+      const cy = impactCanvasH / 2;
+      const radius = Math.min(impactCanvasW, impactCanvasH) * 0.28;
+      const g = impactCtx.createRadialGradient(cx, cy, radius * 0.6, cx, cy, radius * 1.4);
+      g.addColorStop(0, 'rgba(255,42,42,0.25)');
+      g.addColorStop(0.5, 'rgba(255,42,42,0.1)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      impactCtx.fillStyle = g;
+      impactCtx.beginPath();
+      impactCtx.arc(cx, cy, radius * 1.4, 0, Math.PI * 2);
+      impactCtx.fill();
+
+      const earthGradient = impactCtx.createRadialGradient(cx - 25, cy - 20, 20, cx, cy, radius);
+      earthGradient.addColorStop(0, '#1a4d7a');
+      earthGradient.addColorStop(0.5, '#112437');
+      earthGradient.addColorStop(1, '#060c14');
+      impactCtx.fillStyle = earthGradient;
+      impactCtx.beginPath();
+      impactCtx.arc(cx, cy, radius, 0, Math.PI * 2);
+      impactCtx.fill();
+
+      for (let i = impactMissiles.length - 1; i >= 0; i--) {
+        const m = impactMissiles[i];
+        m.progress += m.speed;
+        const t = Math.min(1, m.progress);
+        const mt = 1 - t;
+        const x = mt * mt * m.x + 2 * mt * t * m.ctrlX + t * t * m.tx;
+        const y = mt * mt * m.y + 2 * mt * t * m.ctrlY + t * t * m.ty;
+        impactCtx.strokeStyle = 'rgba(255, 170, 0, 0.9)';
+        impactCtx.lineWidth = 2;
+        impactCtx.beginPath();
+        impactCtx.moveTo(m.x, m.y);
+        impactCtx.lineTo(x, y);
+        impactCtx.stroke();
+        m.x = x;
+        m.y = y;
+
+        if (m.progress >= 1) {
+          impactMissiles.splice(i, 1);
+          impactExp.push({ x: m.tx, y: m.ty, r: 0, a: 1 });
+        }
+      }
+
+      for (let i = impactExp.length - 1; i >= 0; i--) {
+        const e = impactExp[i];
+        e.r += 2.5;
+        e.a -= 0.025;
+        if (e.a <= 0) impactExp.splice(i, 1);
+        impactCtx.strokeStyle = `rgba(255, 210, 90, ${e.a})`;
+        impactCtx.lineWidth = 2;
+        impactCtx.beginPath();
+        impactCtx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+        impactCtx.stroke();
+      }
+
+      requestAnimationFrame(renderImpactCanvas);
+    }
+    setInterval(launchImpactMissile, 650);
+    renderImpactCanvas();
+
+    const releaseDate = new Date('2030-09-27T00:00:00').getTime();
+    function updateCountdown() {
+      const diff = releaseDate - Date.now();
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-minutes').textContent = '00';
+        document.getElementById('cd-seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const seatRows = ['A', 'B', 'C', 'D', 'E', 'F'];
+    const seatsPerRow = 8;
+    const occupied = new Set(['A2', 'A7', 'B4', 'C1', 'C8', 'D3', 'E5', 'F6']);
+    let selectedSeats = new Set();
+
+    const seatMatrix = document.getElementById('seatMatrix');
+    const selectedSeatsLabel = document.getElementById('selectedSeatsLabel');
+    const ticketCountLabel = document.getElementById('ticketCountLabel');
+    const totalPriceLabel = document.getElementById('totalPriceLabel');
+    const btnConfirmBooking = document.getElementById('btnConfirmBooking');
+
+    seatRows.forEach(row => {
+      const rowWrap = document.createElement('div');
+      rowWrap.className = 'flex items-center gap-2 sm:gap-3';
+      const rowLabel = document.createElement('span');
+      rowLabel.className = 'w-5 text-xs font-bold text-slate-500';
+      rowLabel.textContent = row;
+      rowWrap.appendChild(rowLabel);
+
+      for (let i = 1; i <= seatsPerRow; i++) {
+        const seatId = `${row}${i}`;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = i;
+        btn.dataset.id = seatId;
+        btn.className = 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-xs font-bold border transition';
+
+        if (occupied.has(seatId)) {
+          btn.disabled = true;
+          btn.classList.add('bg-zinc-900', 'border-zinc-700', 'text-slate-700', 'opacity-50', 'cursor-not-allowed');
+        } else {
+          btn.classList.add('bg-slate-800', 'border-slate-600', 'text-slate-200', 'hover:bg-red-700', 'hover:border-red-400');
+          btn.addEventListener('click', () => {
+            if (selectedSeats.has(seatId)) {
+              selectedSeats.delete(seatId);
+              btn.classList.remove('bg-red-600', 'border-red-400', 'text-white', 'shadow-[0_0_12px_rgba(255,26,26,0.8)]');
+              btn.classList.add('bg-slate-800', 'border-slate-600', 'text-slate-200');
+            } else {
+              selectedSeats.add(seatId);
+              btn.classList.remove('bg-slate-800', 'border-slate-600', 'text-slate-200');
+              btn.classList.add('bg-red-600', 'border-red-400', 'text-white', 'shadow-[0_0_12px_rgba(255,26,26,0.8)]');
+            }
+            updateSummary();
+          });
+        }
+
+        rowWrap.appendChild(btn);
+      }
+      seatMatrix.appendChild(rowWrap);
+    });
+
+    function updateSummary() {
+      const list = Array.from(selectedSeats).sort();
+      const quantity = list.length;
+      const total = quantity * 15000;
+      selectedSeatsLabel.textContent = quantity ? list.join(', ') : 'Ninguno';
+      ticketCountLabel.textContent = quantity;
+      totalPriceLabel.textContent = `$${total.toLocaleString('es-AR')}`;
+
+      const validName = document.getElementById('customerName').value.trim().length > 0;
+      const validEmail = document.getElementById('customerEmail').value.trim().length > 0;
+      btnConfirmBooking.disabled = !(quantity > 0 && validName && validEmail);
+    }
+
+    document.getElementById('customerName').addEventListener('input', updateSummary);
+    document.getElementById('customerEmail').addEventListener('input', updateSummary);
+
+    function confirmPurchase() {
+      const list = Array.from(selectedSeats).sort();
+      if (!list.length) return;
+
+      const name = document.getElementById('customerName').value.trim();
+      const email = document.getElementById('customerEmail').value.trim();
+      const total = list.length * 15000;
+      const ref = '#EGO-' + Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('ticketRef').textContent = ref;
+      document.getElementById('modalName').textContent = name;
+      document.getElementById('modalEmail').textContent = email;
+      document.getElementById('modalSeats').textContent = list.join(', ');
+      document.getElementById('modalTotal').textContent = `$${total.toLocaleString('es-AR')}`;
+
+      document.getElementById('ticketModal').classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeModal() {
+      document.getElementById('ticketModal').classList.add('opacity-0', 'pointer-events-none');
+      const seats = Array.from(selectedSeats);
+      seats.forEach(seat => {
+        occupied.add(seat);
+        const btn = document.querySelector(`[data-id="${seat}"]`);
+        if (btn) {
+          btn.disabled = true;
+          btn.className = 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-xs font-bold border bg-zinc-900 border-zinc-700 text-slate-700 opacity-50 cursor-not-allowed';
+        }
+      });
+
+      selectedSeats.clear();
+      document.getElementById('customerName').value = '';
+      document.getElementById('customerEmail').value = '';
+      updateSummary();
+    }
+  </script>
 </body>
 </html>
